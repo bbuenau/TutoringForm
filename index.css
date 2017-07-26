@@ -1,0 +1,19 @@
+/* form styling */
+
+div.width {
+	width:500px;
+	text-align: left;
+}
+
+div {
+	max-width: 960px;
+    margin: auto;
+	background-color:#e6f9ff;
+}
+
+body {
+	text-align: center;
+	background-color: #33ccff; 
+	font-family:Georgia, serif;
+}
+

@@ -1,0 +1,95 @@
+<!--form page -->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Tutoring Form</title>
+		<link rel="stylesheet" type="text/css" href="index.css">
+	</head>
+	
+	<body>
+
+		<h1>Tutoring Request Form</h1>
+		<p>This form is to request help for math or CS classes at JCHS.</p>
+		
+		<form action="/formprocess.php">
+		 <div class="width">
+			<fieldset>
+				<legend> Personal Information: </legend>
+				First name: <br>
+				<input type="text" name="firstname"> <br>
+				Last name: <br>
+				<input type="text" name="lastname"> <br>
+				Grade: <br>
+				<select name="cars">
+					<option value="ninth">9</option>
+					<option value="tenth">10</option>
+					<option value="eleventh">11</option>
+					<option value="twelfth">12</option>
+				</select>
+				<br><br>
+			</fieldset>
+		 </div>
+			<br>
+		  <div class="width">
+			<fieldset class="width">
+				<legend>Class information</legend>
+				What class do you need a tutor for? <br>
+				<input type="radio" name="class" value="Alg1"> Algebra 1<br>
+				<input type="radio" name="class" value="Geo"> Geometry<br>
+				<input type="radio" name="class" value="Alg2"> Algebra2 <br>
+				<input type="radio" name="class" value="PreCalc"> Pre-Caculus<br>
+				<input type="radio" name="class" value="CSP"> AP CSP<br>
+				<input type="radio" name="class" value="Calc"> AP Calculus <br>
+				<input type="radio" name="class" value="Stats"> AP Statistics<br>
+				<input type="radio" name="class" value="Math95"> Math 95<br>
+				<input type="radio" name="class" value="Other"> Other <br>
+			</fieldset>
+		  </div>
+			<br>
+		  <div class="width">
+			<fieldset>
+				<legend>Times available</legend>
+				When would you prefer to meet for tutoring? <br>
+				<input type="checkbox" name="time" value="During"> During a free period at school<br>
+				<input type="checkbox" name="time" value="Before"> Before school <br>
+				<input type="checkbox" name="time" value="After"> After school<br>
+				<input type="checkbox" name="time" value="Lunch"> During Lunch<br>
+				<input type="checkbox" name="time" value="Weekend"> On the weekend<br>
+				<input type="checkbox" name="time" value="Other"> Other <br><br>
+				How often would you like to meet? <br>
+				<input type="checkbox" name="tlength" value="Once2"> Once a week for 2 hours or less<br>
+				<input type="checkbox" name="tlength" value="Once4"> Once a week for 4+ hours<br>
+				<input type="checkbox" name="tlength" value="Twice"> Two to three times a week for 2 hours or less<br>
+				<input type="checkbox" name="tlength" value="Daily"> Every day for 1 hour or less<br>
+				<input type="checkbox" name="tlength" value="Test"> Only the week before a test<br>
+				<input type="checkbox" name="tlength" value="Other"> Other <br>
+			</fieldset>
+		  </div>
+			<br>
+		  <div class="width">
+			<fieldset>
+				<legend>Tutor specs</legend>
+				What kind of tutor do you want? <br>
+				<input type="radio" name="tutortype" value="Teacher1"> JCHS teacher<br>
+				<input type="radio" name="tutortype" value="Student1"> JCHS student<br>
+				<input type="radio" name="tutortype" value="Teacher2"> Non-JCHS adult <br>
+				<input type="radio" name="tutortype" value="Student2"> Non-JCHS student<br>
+				<input type="radio" name="tutortype" value="Anyone"> Anyone!<br>
+				<input type="radio" name="tutortype" value="Other"> Other <br><br>
+				Are you willing/able to pay for a tutor? <br>
+				<input type="radio" name="payment" value="Yes"> Yes<br>
+				<input type="radio" name="payment" value="No"> No<br>
+				<input type="radio" name="payment" value="Maybe"> Maybe <br>
+				<input type="radio" name="payment" value="Other"> Other<br><br>
+				If you answered yes to paying for a tutor, how much are you willing/able to pay? <br>
+				<input type="radio" name="amount" value="High"> $20/hour<br>
+				<input type="radio" name="amount" value="Low"> $10/hour<br>
+				<input type="radio" name="amount" value="Alt"> I'm can trade tutoring in another subject<br>
+				<input type="radio" name="amount" value="Other"> Other<br><br>	
+			</fieldset>
+		  </div>
+			<input type="submit" value="Submit">
+		</form>
+	</body>
+</html>
