@@ -19,15 +19,18 @@
 				First name: <br>
 				<input type="text" name="firstname"> <br>
 				Last name: <br>
-				<input type="text" name="lastname"> <br>
+				<input type="text" name="lastname"> <br><br>
 				Grade: <br>
 				<select name="cars">
 					<option value="ninth">9</option>
 					<option value="tenth">10</option>
 					<option value="eleventh">11</option>
 					<option value="twelfth">12</option>
-				</select>
-				<br><br>
+				</select> <br><br>
+				Gender: <br>
+				<input type="radio" name="gender" value="Female">Female
+				<input type="radio" name="gender" value="Male">Male
+				<input type="radio" name="gender" value="Prefer not to say">Prefer not to say<br>
 			</fieldset>
 		 </div>
 			<br>
@@ -35,15 +38,15 @@
 			<fieldset class="width">
 				<legend>Class information</legend>
 				What class do you need a tutor for? <br>
-				<input type="checkbox" name="class" value="Alg1"> Algebra 1<br>
-				<input type="checkbox" name="class" value="Geo"> Geometry<br>
-				<input type="checkbox" name="class" value="Alg2"> Algebra2 <br>
-				<input type="checkbox" name="class" value="PreCalc"> Pre-Caculus<br>
-				<input type="checkbox" name="class" value="CSP"> AP CSP<br>
-				<input type="checkbox" name="class" value="Calc"> AP Calculus <br>
-				<input type="checkbox" name="class" value="Stats"> AP Statistics<br>
-				<input type="checkbox" name="class" value="Math95"> Math 95<br>
-				<input type="checkbox" name="class" value="Other"> Other <br>
+				<input type="checkbox" name="class[]" value="Alg1"> Algebra 1<br>
+				<input type="checkbox" name="class[]" value="Geo"> Geometry<br>
+				<input type="checkbox" name="class[]" value="Alg2"> Algebra2 <br>
+				<input type="checkbox" name="class[]" value="PreCalc"> Pre-Caculus<br>
+				<input type="checkbox" name="class[]" value="CSP"> AP CSP<br>
+				<input type="checkbox" name="class[]" value="Calc"> AP Calculus <br>
+				<input type="checkbox" name="class[]" value="Stats"> AP Statistics<br>
+				<input type="checkbox" name="class[]" value="Math95"> Math 95<br>
+				<input type="checkbox" name="class[]" value="Other"> Other <br>
 			</fieldset>
 		  </div>
 			<br>
@@ -71,23 +74,23 @@
 			<fieldset>
 				<legend>Tutor specs</legend>
 				What kind of tutor do you want? <br>
-				<input type="checkbox" name="tutortype" value="Teacher1"> JCHS teacher<br>
-				<input type="checkbox" name="tutortype" value="Student1"> JCHS student<br>
-				<input type="checkbox" name="tutortype" value="Teacher2"> Non-JCHS adult <br>
-				<input type="checkbox" name="tutortype" value="Student2"> Non-JCHS student<br>
-				<input type="checkbox" name="tutortype" value="Anyone"> Anyone!<br>
-				<input type="checkbox" name="tutortype" value="Other"> Other <br><br>
+				<input type="checkbox" name="tutortype[]" value="Teacher1"> JCHS teacher<br>
+				<input type="checkbox" name="tutortype[]" value="Student1"> JCHS student<br>
+				<input type="checkbox" name="tutortype[]" value="Teacher2"> Non-JCHS adult <br>
+				<input type="checkbox" name="tutortype[]" value="Student2"> Non-JCHS student<br>
+				<input type="checkbox" name="tutortype[]" value="Anyone"> Anyone!<br>
+				<input type="checkbox" name="tutortype[]" value="Other"> Other <br><br>
 				Are you willing/able to pay for a tutor? <br>
 				<input type="radio" name="payment" value="Yes"> Yes<br>
 				<input type="radio" name="payment" value="No"> No<br>
 				<input type="radio" name="payment" value="Maybe"> Maybe <br>
 				<input type="radio" name="payment" value="Other"> Other<br><br>
 				If you answered yes to paying for a tutor, how much are you willing/able to pay? (This may affect what kind of tutor you are able to get.)<br>
-				<input type="checkbox" name="amount" value="High">$20+/hour<br>
-				<input type="checkbox" name="amount" value="Low">Between $10 & $20/hour<br>
-				<input type="checkbox" name="amount" value="Low">Between $1 & $10/hour<br>
-				<input type="checkbox" name="amount" value="Alt"> I'm can trade tutoring in another subject<br>
-				<input type="checkbox" name="amount" value="Other"> Other<br><br>	
+				<input type="checkbox" name="amount[]" value="High">$20+/hour<br>
+				<input type="checkbox" name="amount[]" value="Low">Between $10 & $20/hour<br>
+				<input type="checkbox" name="amount[]" value="Low">Between $1 & $10/hour<br>
+				<input type="checkbox" name="amount[]" value="Alt"> I'm can trade tutoring in another subject<br>
+				<input type="checkbox" name="amount[]" value="Other"> Other<br><br>	
 			</fieldset>
 		  </div>
 		  <br>
