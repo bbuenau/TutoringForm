@@ -9,6 +9,8 @@
 	
 	<body>
 
+	
+	
 		<h1>Tutoring Request Form</h1>
 		<p>This form is to request help for math or CS classes at JCHS.</p>
 		
@@ -17,11 +19,11 @@
 			<fieldset>
 				<legend> Personal Information: </legend>
 				First name: <br>
-				<input type="text" name="firstname"> <br>
+				<input type="text" name="first_name"> <br>
 				Last name: <br>
-				<input type="text" name="lastname"> <br><br>
+				<input type="text" name="last_name"> <br><br>
 				Grade: <br>
-				<select name="cars">
+				<select name="grade">
 					<option value="ninth">9</option>
 					<option value="tenth">10</option>
 					<option value="eleventh">11</option>
@@ -96,5 +98,8 @@
 		  <br>
 		  <input type="submit" value="Submit" type="button" class="button">
 		</form>
+		
+		echo "<h2>Your Input:</h2>";
+		
 	</body>
 </html>

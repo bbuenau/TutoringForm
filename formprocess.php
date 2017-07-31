@@ -12,4 +12,10 @@ $opt = [
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 $pdo = new \PDO($dsn, $user, $pass, $opt);
+$values = [
+	':first_name' => $_POST['first_name'],
+	':last_name' => $_POST['last_name'],
+];
+$stmt = $pdo->prepare("INSERT INTO Personal (first_name,last_name) VALUES (:first_name, :last_name)");
+$stmt->execute($values);
 ?>
