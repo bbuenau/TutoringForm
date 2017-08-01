@@ -12,10 +12,30 @@ $opt = [
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 $pdo = new \PDO($dsn, $user, $pass, $opt);
+
+if (!isset($_POST["first_name"])){
+	die("No first name");
+}
+if (!isset($_POST["last_name"])){
+	die("No last name");
+	
+}if (!isset($_POST["grade"])){
+	die("No grade");
+}
+/*
+
+echo $_POST["time"][0]; 
+var_dump ($_POST);
+exit;
+*/
+
+
+
 $values = [
 	':first_name' => $_POST['first_name'],
 	':last_name' => $_POST['last_name'],
+	':grade' => $_POST['grade'],
+	':gender' => $_POST['gender'],
 ];
-$stmt = $pdo->prepare("INSERT INTO Personal (first_name,last_name) VALUES (:first_name, :last_name)");
+$stmt = $pdo->prepare("INSERT INTO people (first_name,last_name,grade,gender) VALUES (:first_name, :last_name, :grade, :gender)");
 $stmt->execute($values);
-?>

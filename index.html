@@ -3,14 +3,11 @@
 <html>
 
 	<head>
-		<title>Tutoring Form</title>
+		<title>Tutoring Request Form</title>
 		<link rel="stylesheet" type="text/css" href="index.css">
 	</head>
 	
 	<body>
-
-	
-	
 		<h1>Tutoring Request Form</h1>
 		<p>This form is to request help for math or CS classes at JCHS.</p>
 		
@@ -18,16 +15,16 @@
 		 <div class="width">
 			<fieldset>
 				<legend> Personal Information: </legend>
-				First name: <br>
-				<input type="text" name="first_name"> <br>
-				Last name: <br>
+				First name: <span style="color:red;float:right;">* required</span> <br>
+				<input type="text" name="first_name" required> <br>
+				Last name: <span style="color:red;float:right">* required</span><br>
 				<input type="text" name="last_name"> <br><br>
-				Grade: <br>
+				Grade: <span style="color:red;float:right">* required</span><br>
 				<select name="grade">
-					<option value="ninth">9</option>
-					<option value="tenth">10</option>
-					<option value="eleventh">11</option>
-					<option value="twelfth">12</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
 				</select> <br><br>
 				Gender: <br>
 				<input type="radio" name="gender" value="Female">Female
@@ -40,15 +37,15 @@
 			<fieldset class="width">
 				<legend>Class information</legend>
 				What class do you need a tutor for? <br>
-				<input type="checkbox" name="class[]" value="Alg1"> Algebra 1<br>
-				<input type="checkbox" name="class[]" value="Geo"> Geometry<br>
-				<input type="checkbox" name="class[]" value="Alg2"> Algebra2 <br>
-				<input type="checkbox" name="class[]" value="PreCalc"> Pre-Caculus<br>
-				<input type="checkbox" name="class[]" value="CSP"> AP CSP<br>
-				<input type="checkbox" name="class[]" value="Calc"> AP Calculus <br>
-				<input type="checkbox" name="class[]" value="Stats"> AP Statistics<br>
-				<input type="checkbox" name="class[]" value="Math95"> Math 95<br>
-				<input type="checkbox" name="class[]" value="Other"> Other <br>
+				<input type="checkbox" name="class[]" value="1"> Algebra 1<br>
+				<input type="checkbox" name="class[]" value="2"> Geometry<br>
+				<input type="checkbox" name="class[]" value="3"> Algebra2 <br>
+				<input type="checkbox" name="class[]" value="4"> Pre-Caculus<br>
+				<input type="checkbox" name="class[]" value="5"> AP CSP<br>
+				<input type="checkbox" name="class[]" value="6"> AP Calculus <br>
+				<input type="checkbox" name="class[]" value="7"> AP Statistics<br>
+				<input type="checkbox" name="class[]" value="8"> Math 95<br>
+				<input type="checkbox" name="class[]" value="9"> Other <br>
 			</fieldset>
 		  </div>
 			<br>
@@ -98,8 +95,5 @@
 		  <br>
 		  <input type="submit" value="Submit" type="button" class="button">
 		</form>
-		
-		echo "<h2>Your Input:</h2>";
-		
 	</body>
 </html>
