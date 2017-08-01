@@ -13,6 +13,7 @@ $opt = [
 ];
 $pdo = new \PDO($dsn, $user, $pass, $opt);
 
+//protection against hackers
 if (!isset($_POST["first_name"])){
 	die("No first name");
 }
@@ -22,12 +23,13 @@ if (!isset($_POST["last_name"])){
 }if (!isset($_POST["grade"])){
 	die("No grade");
 }
-/*
 
+
+//output what is in the last form submission
 echo $_POST["time"][0]; 
 var_dump ($_POST);
 exit;
-*/
+
 
 
 
@@ -39,3 +41,9 @@ $values = [
 ];
 $stmt = $pdo->prepare("INSERT INTO people (first_name,last_name,grade,gender) VALUES (:first_name, :last_name, :grade, :gender)");
 $stmt->execute($values);
+
+//Get "id" of the new person
+$pdo->exec($stmt);
+$last_id = $conn->lastInsertId();
+echo "New record created successfully. Last inherited ID is:" . $last_id;
+
