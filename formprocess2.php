@@ -39,7 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
   {
     $gender = test_input($_POST["gender"]);
   }
-  
 }
 
 // clean the data
@@ -51,8 +50,19 @@ function test_input($data)
   return $data;
 }
 
-//inserting into database
-$values = [
+// display the data that has been typed into the form
+echo "<h2>Your Input:</h2>";
+echo $first_name;
+echo "<br>";
+echo $last_name;
+echo "<br>";
+echo $grade;
+echo "<br>";
+echo $gender;
+
+/*inserting into database
+$values = 
+[
 	':first_name' => $_POST['first_name'],
 	':last_name' => $_POST['last_name'],
 	':grade' => $_POST['grade'],
@@ -65,17 +75,7 @@ $stmt->execute($values);
 $pdo->exec($stmt);
 $last_id = $conn->lastInsertId();
 echo "New record created successfully. Last inherited ID is:" . $last_id;
-
-
-// display the data that has been typed into the form
-echo "<h2>Your Input:</h2>";
-echo $first_name;
-echo "<br>";
-echo $last_name;
-echo "<br>";
-echo $grade;
-echo "<br>";
-echo $gender;
+*/
 
 
 
