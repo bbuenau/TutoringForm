@@ -39,15 +39,12 @@
 			<fieldset class="width">
 				<legend>Class information</legend>
 				What class do you need a tutor for? <br>
-				<input type="checkbox" name="class[]" value="1"> Algebra 1<br>
-				<input type="checkbox" name="class[]" value="2"> Geometry<br>
-				<input type="checkbox" name="class[]" value="3"> Algebra2 <br>
-				<input type="checkbox" name="class[]" value="4"> Pre-Caculus<br>
-				<input type="checkbox" name="class[]" value="5"> AP CSP<br>
-				<input type="checkbox" name="class[]" value="6"> AP Calculus <br>
-				<input type="checkbox" name="class[]" value="7"> AP Statistics<br>
-				<input type="checkbox" name="class[]" value="8"> Math 95<br>
-				<input type="checkbox" name="class[]" value="9"> Other <br>
+				<?php
+				foreach ($classes AS $class)
+				{
+					echo '<input type="checkbox" name="class[]" value="'.$class["id"].'"> '.$class["name"].'<br>';
+				}
+				?>
 			</fieldset>
 		  </div>
 			<br>

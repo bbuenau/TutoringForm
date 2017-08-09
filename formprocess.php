@@ -13,7 +13,7 @@ $opt = [
 ];
 $pdo = new \PDO($dsn, $user, $pass, $opt);
 
-//protection against hackers
+//validation
 if (!isset($_POST["first_name"])){
 	die("No first name");
 }
@@ -32,7 +32,7 @@ exit;
 
 
 
-
+//inserting into database
 $values = [
 	':first_name' => $_POST['first_name'],
 	':last_name' => $_POST['last_name'],
