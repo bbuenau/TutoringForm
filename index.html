@@ -11,7 +11,7 @@
 		<h1>Tutoring Request Form</h1>
 		<p>This form is to request help for math or CS classes at JCHS.</p>
 		
-		<form action="/formprocess.php" method="post">
+		<form action="/formprocess2.php" method="post">
 		 <div class="width">
 			<fieldset>
 				<legend> Personal Information: </legend>
@@ -19,8 +19,8 @@
 				First name: <span style="color:red;">*</span> <br>
 				<input type="text" name="first_name" required> <br>
 				Last name: <span style="color:red;">*</span><br>
-				<input type="text" name="last_name"> <br><br>
-				Grade: <span style="color:red;">*</span><br>
+				<input type="text" name="last_name" required> <br><br>
+				Grade: <span style="color:red;">* </span><br>
 				<select name="grade">
 					<option value="9">9</option>
 					<option value="10">10</option>
@@ -31,6 +31,7 @@
 				<input type="radio" name="gender" value="Female">Female
 				<input type="radio" name="gender" value="Male">Male
 				<input type="radio" name="gender" value="Prefer not to say">Prefer not to say<br>
+				
 			</fieldset>
 		 </div>
 			<br>
