@@ -60,26 +60,34 @@ echo $grade;
 echo "<br>";
 echo $gender;
 
-/*inserting into database
+//inserting values into database
 $values = 
 [
-	':first_name' => $_POST['first_name'],
-	':last_name' => $_POST['last_name'],
-	':grade' => $_POST['grade'],
-	':gender' => $_POST['gender'],
+	':first_name' => $first_name,
+	':last_name' => $last_name,
+	':grade' => $grade,
+	':gender' => $gender,
 ];
 $stmt = $pdo->prepare("INSERT INTO people (first_name,last_name,grade,gender) VALUES (:first_name, :last_name, :grade, :gender)");
 $stmt->execute($values);
 
 //Get "id" of the new person
-$pdo->exec($stmt);
-$last_id = $conn->lastInsertId();
+//$pdo->exec($stmt);
+$last_id = $pdo->lastInsertId();
 echo "New record created successfully. Last inherited ID is:" . $last_id;
-*/
 
 
-
-
+foreach ($_POST['class'] AS $class)
+{
+	$values = 
+[
+	':fkperson_id' => $last_id,
+	':fkclass_id' => $class,
+	
+];
+$stmt = $pdo->prepare("INSERT INTO people_classes (fkperson_id,fkclass_id) VALUES (:fkperson_id, :fkclass_id)");
+$stmt->execute($values);
+}
 
 
 
