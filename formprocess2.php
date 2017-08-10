@@ -1,5 +1,27 @@
 
 <?php 
+//to build the people table --from W3Schools PHP SELECT Data display as table
+echo "<table style='border: solid 1px black;'>";
+ echo "<tr><th>Id</th><th>Firstname</th><th>Lastname</th><th>Grade</th><th>Gender</th></tr>";
+
+class TableRows extends RecursiveIteratorIterator { 
+    function __construct($it) { 
+        parent::__construct($it, self::LEAVES_ONLY); 
+    }
+
+    function current() {
+        return "<td style='width: 150px; border: 1px solid black;'>" . parent::current(). "</td>";
+    }
+
+    function beginChildren() { 
+        echo "<tr>"; 
+    } 
+
+    function endChildren() { 
+        echo "</tr>" . "\n";
+    } 
+} 
+
 
 //PDO stuff
 $host = '127.0.0.1';
@@ -76,7 +98,7 @@ $stmt->execute($values);
 $last_id = $pdo->lastInsertId();
 echo "New record created successfully. Last inherited ID is:" . $last_id;
 
-
+//join classes and people to people_classes table
 foreach ($_POST['class'] AS $class)
 {
 	$values = 
@@ -90,6 +112,25 @@ $stmt->execute($values);
 }
 
 
+//from W3Schools PHP SELECT Data display as table
+try
+{
+	$stmt = $pdo->prepare("SELECT id, first_name, last_name, grade, gender FROM people"); 
+	$stmt->execute();
 
+		// set the resulting array to associative
+	$result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+
+	foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) 
+	{ 
+	   echo $v;
+	}
+}
+catch(PDOException $e) 
+{
+    echo "Error: " . $e->getMessage();
+}
+$pdo = null;
+echo "</table>";
 
 
