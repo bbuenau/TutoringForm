@@ -1,6 +1,6 @@
 
 <?php 
-/*to build the people table --from W3Schools PHP SELECT Data display as table
+/*to build the people table --from W3Schools PHP SELECT Data display as table*/
 echo "<table style='border: solid 1px black;'>";
  echo "<tr><th>Id</th><th>Firstname</th><th>Lastname</th><th>Grade</th><th>Gender</th></tr>";
 
@@ -21,7 +21,7 @@ class TableRows extends RecursiveIteratorIterator {
         echo "</tr>" . "\n";
     } 
 } 
-*/
+
 
 //PDO stuff
 $host = '127.0.0.1';
@@ -37,7 +37,7 @@ $opt = [
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 $pdo = new \PDO($dsn, $user, $pass, $opt);
-
+$pdo1 = new \PDO($dsn, $user, $pass, $opt);
 
 //use special chars for min level security
 	echo htmlspecialchars($_SERVER["PHP_SELF"]);
@@ -91,8 +91,8 @@ $values =
 	':grade' => $grade,
 	':gender' => $gender,
 ];
-$stmt = $pdo->prepare("INSERT INTO people (first_name,last_name,grade,gender) VALUES (:first_name, :last_name, :grade, :gender)");
-$stmt->execute($values);
+$stmt1 = $pdo->prepare("INSERT INTO people (first_name,last_name,grade,gender) VALUES (:first_name, :last_name, :grade, :gender)");
+$stmt1->execute($values);
 
 //Get "id" of the new person
 //$pdo->exec($stmt);
@@ -108,12 +108,12 @@ foreach ($_POST['class'] AS $class)
 	':fkclass_id' => $class,
 	
 ];
-$stmt = $pdo->prepare("INSERT INTO people_classes (fkperson_id,fkclass_id) VALUES (:fkperson_id, :fkclass_id)");
-$stmt->execute($values);
+$stmt2 = $pdo->prepare("INSERT INTO people_classes (fkperson_id,fkclass_id) VALUES (:fkperson_id, :fkclass_id)");
+$stmt2->execute($values);
 }
 
 //join for table times_lengths
-
+/*
 foreach ($_POST['time'] AS $time)
 {
 	$value = 
@@ -123,29 +123,52 @@ foreach ($_POST['time'] AS $time)
 	];
 $stmt = $pdo->prepare("INSERT INTO times_legths (fktimes_id,fklengths_id) VALUES (:fktimes_id,fklengths_id)");
 }
+*/
 
 
 
-
-/*from W3Schools PHP SELECT Data display as table
+/*from W3Schools PHP SELECT Data display peoples data as table */
 try
 {
-	$stmt = $pdo->prepare("SELECT id, first_name, last_name, grade, gender FROM people"); 
-	$stmt->execute();
+	$stmt3 = $pdo->prepare("SELECT id, first_name, last_name, grade, gender FROM people"); 
+	$stmt3->execute();
 
 		// set the resulting array to associative
-	$result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+	$result = $stmt3->setFetchMode(PDO::FETCH_ASSOC); 
 
-	foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) 
+	foreach(new TableRows(new RecursiveArrayIterator($stmt3->fetchAll())) as $key=>$value) 
 	{ 
-	   echo $v;
+	   echo $value;
 	}
 }
-catch(PDOException $e) 
+catch(PDOException $error) 
 {
-    echo "Error: " . $e->getMessage();
+    echo "Error: " . $error->getMessage();
 }
 $pdo = null;
 echo "</table>";
-*/
+
+echo "<table style='border: solid 1px black;'>";
+ echo "<tr><th>Id</th><th>fkperson_id</th><th>fkclass_id</th></tr>";
+/* attempt to display people_classes as a table */
+try
+{
+	$stmt4 = $pdo1->prepare("SELECT id, fkperson_id, fkclass_id FROM people_classes"); 
+	$stmt4->execute();
+
+		// set the resulting array to associative
+	$result = $stmt4->setFetchMode(PDO::FETCH_ASSOC); 
+
+	foreach(new TableRows(new RecursiveArrayIterator($stmt4->fetchAll())) as $key=>$value) 
+	{ 
+	   echo $value;
+	}
+}
+catch(PDOException $error) 
+{
+    echo "Error: " . $error->getMessage();
+}
+$pdo = null;
+echo "</table>";
+
 

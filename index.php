@@ -35,7 +35,7 @@ $payments = $pdo->query('SELECT * FROM payments')->fetchAll(PDO::FETCH_ASSOC);
 		<form action="/formprocess2.php" method="post">
 		 <div class="width">
 			<fieldset>
-				<legend> Personal Information: </legend>
+				<legend><strong> Personal Information: </strong></legend>
 				<span style="color:red;">* required field</span><br><br>
 				First name: <span style="color:red;">*</span> <br>
 				<input type="text" name="first_name" required> <br>
@@ -51,13 +51,13 @@ $payments = $pdo->query('SELECT * FROM payments')->fetchAll(PDO::FETCH_ASSOC);
 				Gender: <br>
 				<input type="radio" name="gender" value="Female">Female
 				<input type="radio" name="gender" value="Male">Male
-				<input type="radio" name="gender" value="Prefer not to say">Prefer not to say<br>
-			</fieldset>
+				<input type="radio" name="gender" value="Prefer not to say">Prefer not to say<br><br>
+		<!--	</fieldset>
 		 </div>
 			<br>
 		  <div class="width">
-			<fieldset class="width">
-				<legend>Class information</legend>
+			<fieldset class="width"> -->
+				<legend><strong>Class information</strong></legend>
 				What class do you need a tutor for? <br>
 				<?php
 				foreach ($classes AS $class)
@@ -70,7 +70,7 @@ $payments = $pdo->query('SELECT * FROM payments')->fetchAll(PDO::FETCH_ASSOC);
 			<br>
 		  <div class="width">
 			<fieldset>
-				<legend>Times available</legend>
+				<legend><strong>Times available</strong></legend>
 				When would you prefer to meet for tutoring? <br>
 				<?php
 				foreach ($times AS $time)
@@ -104,7 +104,7 @@ $payments = $pdo->query('SELECT * FROM payments')->fetchAll(PDO::FETCH_ASSOC);
 			<br>
 		  <div class="width">
 			<fieldset>
-				<legend>Tutor specs</legend>
+				<legend><strong>Tutor specs</strong></legend>
 				What kind of tutor do you want? <br>
 				<?php
 				foreach ($tutors AS $tutor)
@@ -119,11 +119,7 @@ $payments = $pdo->query('SELECT * FROM payments')->fetchAll(PDO::FETCH_ASSOC);
 				<input type="checkbox" name="tutortype[]" value="Anyone"> Anyone!<br>
 				<input type="checkbox" name="tutortype[]" value="Other"> Other -->
 				<br><br>
-				Are you willing/able to pay for a tutor? <br>
-				<input type="radio" name="payment" value="Yes"> Yes<br>
-				<input type="radio" name="payment" value="No"> No<br>
-				<input type="radio" name="payment" value="Maybe"> Maybe <br>
-				<input type="radio" name="payment" value="Other"> Other<br><br>
+				
 				How much are you willing/able to pay? (This may affect what kind of tutor you are able to get.)<br>
 				<?php
 				foreach ($payments AS $payment)
