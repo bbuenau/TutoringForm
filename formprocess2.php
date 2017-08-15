@@ -1,6 +1,7 @@
 
 <?php 
-/*to build the people table --from W3Schools PHP SELECT Data display as table*/
+
+//to build the people table --from W3Schools PHP SELECT Data display peoples data as table
 echo "<table style='border: solid 1px black;'>";
  echo "<tr><th>Id</th><th>Firstname</th><th>Lastname</th><th>Grade</th><th>Gender</th></tr>";
 
@@ -21,7 +22,6 @@ class TableRows extends RecursiveIteratorIterator {
         echo "</tr>" . "\n";
     } 
 } 
-
 
 //PDO stuff
 $host = '127.0.0.1';
@@ -126,8 +126,6 @@ $stmt = $pdo->prepare("INSERT INTO times_legths (fktimes_id,fklengths_id) VALUES
 */
 
 
-
-/*from W3Schools PHP SELECT Data display peoples data as table */
 try
 {
 	$stmt3 = $pdo->prepare("SELECT id, first_name, last_name, grade, gender FROM people"); 
@@ -148,9 +146,14 @@ catch(PDOException $error)
 $pdo = null;
 echo "</table>";
 
+
+
+//display people_classes as a table 
 echo "<table style='border: solid 1px black;'>";
  echo "<tr><th>Id</th><th>fkperson_id</th><th>fkclass_id</th></tr>";
-/* attempt to display people_classes as a table */
+ 
+
+//get data to display in table
 try
 {
 	$stmt4 = $pdo1->prepare("SELECT id, fkperson_id, fkclass_id FROM people_classes"); 

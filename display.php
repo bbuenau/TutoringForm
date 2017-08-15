@@ -44,12 +44,12 @@ try {
     // set the resulting array to associative
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
 
-    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) { 
-        echo $v;
+    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $key=>$value) { 
+        echo $value;
     }
 
-catch(PDOException $e) {
-    echo "Error: " . $e->getMessage();
+catch(PDOException $error) {
+    echo "Error: " . $error->getMessage();
 }
 $pdo = null;
 echo "</table>";
