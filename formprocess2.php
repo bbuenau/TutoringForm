@@ -6,7 +6,28 @@ echo "<table style='border: solid 1px black;'>";
  echo "<tr><th>Id</th><th>Firstname</th><th>Lastname</th><th>Grade</th><th>Gender</th></tr>";
 
 class TableRows extends RecursiveIteratorIterator { 
-    function __construct($it) { 
+    function __construct($pdo, $it) { 
+		
+		foreach($it AS $i){
+			//SELECT fkclass_id FROM people_classes WHERE fkperson_id = $i["id"];
+			$test = $i['id'];
+			
+			
+			$stmt3 = $pdo->prepare("SELECT fkclass_id FROM people_classes WHERE fkperson_id = $test"); 
+			$stmt3->execute();
+			
+			$result = $stmt3->setFetchMode(PDO::FETCH_ASSOC);
+			/*$class = [];
+			if (!empty($stmt3->fetchAll())){
+				$class = $stmt3->fetchAll();
+				echo "<pre>";
+				print_r($class); 
+			} */
+			$class = $stmt3->fetchAll();
+			echo "<pre>";
+				print_r($class);
+		}
+		exit;
         parent::__construct($it, self::LEAVES_ONLY); 
     }
 
@@ -38,6 +59,7 @@ $opt = [
 ];
 $pdo = new \PDO($dsn, $user, $pass, $opt);
 $pdo1 = new \PDO($dsn, $user, $pass, $opt);
+$pdo2 = new \PDO($dsn, $user, $pass, $opt);
 
 //use special chars for min level security
 	echo htmlspecialchars($_SERVER["PHP_SELF"]);
@@ -125,7 +147,7 @@ $stmt = $pdo->prepare("INSERT INTO times_legths (fktimes_id,fklengths_id) VALUES
 }
 */
 
-
+//peoples table
 try
 {
 	$stmt3 = $pdo->prepare("SELECT id, first_name, last_name, grade, gender FROM people"); 
@@ -134,7 +156,7 @@ try
 		// set the resulting array to associative
 	$result = $stmt3->setFetchMode(PDO::FETCH_ASSOC); 
 
-	foreach(new TableRows(new RecursiveArrayIterator($stmt3->fetchAll())) as $key=>$value) 
+	foreach(new TableRows($pdo,new RecursiveArrayIterator($stmt3->fetchAll())) as $key=>$value) 
 	{ 
 	   echo $value;
 	}
@@ -175,3 +197,38 @@ $pdo = null;
 echo "</table>";
 
 
+
+
+/* from W3Schools to use as an example
+SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers
+ON Orders.CustomerID=Customers.CustomerID;
+
+
+SELECT * FROM people_classes, classes, people 
+	WHERE people.id = people_classes.fkperson_id AND classes.id = people_classes.fkclass_id;
+
+echo 
+
+
+//get data to display in JOIN table
+try
+{
+	$stmt5 = $pdo2->prepare("SELECT id, fkperson_id, fkclass_id FROM people_classes"); 
+	$stmt5->execute();
+
+		// set the resulting array to associative
+	$result = $stmt5->setFetchMode(PDO::FETCH_ASSOC); 
+
+	foreach(new TableRows(new RecursiveArrayIterator($stmt4->fetchAll())) as $key=>$value) 
+	{ 
+	   echo $value;
+	}
+}
+catch(PDOException $error) 
+{
+    echo "Error: " . $error->getMessage();
+}
+$pdo = null;
+echo "</table>";*/
